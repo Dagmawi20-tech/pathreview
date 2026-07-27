@@ -14,3 +14,17 @@ The pathreview app has a bias detector (`safety/bias_detector.py`) that analyzes
 **Setup confirmation:** [x] App runs locally at localhost:5173
 
 **Cohort ledger:** [ ] Issue added to cohort ledger
+
+## Week 8 — Reproduction & solution planning
+
+**Reproduction commit link:** https://github.com/Dagmawi20-tech/pathreview/commit/0ec6c3b
+
+**Reproduction summary:**
+Created `scripts/audit_bias.py` as a stub that raises `NotImplementedError`, confirming the script does not exist. Running `python scripts/audit_bias.py` produces the error, proving the gap described in issue #72 — `BiasDetector` is implemented but never called in a batch context.
+
+**PLAN.md link:** https://github.com/Dagmawi20-tech/pathreview/blob/feat/72-bias-audit-report/PLAN.md
+
+**Walkthrough video (recommended):** N/A
+
+**Blockers or open questions:**
+The seeded reviews use placeholder content that won't trigger any bias patterns, so verifying the script works correctly will require injecting synthetic reviews with known-biased text. Need to confirm the best approach for this — either add test fixtures in the script itself or insert them via the DB directly.
