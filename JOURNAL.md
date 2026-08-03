@@ -28,3 +28,12 @@ Created `scripts/audit_bias.py` as a stub that raises `NotImplementedError`, con
 
 **Blockers or open questions:**
 The seeded reviews use placeholder content that won't trigger any bias patterns, so verifying the script works correctly will require injecting synthetic reviews with known-biased text. Need to confirm the best approach for this — either add test fixtures in the script itself or insert them via the DB directly.
+
+**Pre-existing test failures noted:**
+Running `make test-unit` before starting implementation shows 53 pre-existing
+failures across multiple files unrelated to issue #72. Of note: 9 tests in
+`test_bias_detector.py` already fail because the existing regex patterns in
+`safety/bias_detector.py` are too narrow — phrases like "bootcamp graduates
+can't write production code" and "young developers can't handle complex systems"
+are not caught. These failures exist before any changes and will be documented
+in the PR. My changes will not introduce any new failures.
