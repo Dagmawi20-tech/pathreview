@@ -58,7 +58,7 @@ None.
 
 ### Check-in 2 (end of week)
 
-**PR link:** [paste PR link after opening]
+**PR link:** https://github.com/ascherj/pathreview/pull/636
 
 **Branch:** `feat/72-bias-audit-report`
 
